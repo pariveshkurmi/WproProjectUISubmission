@@ -1,0 +1,40 @@
+<div ng-include src="'App/Views/home.html'"></div>
+
+<form name="accountForm">
+    <fieldset>
+        <legend>Account Details Form</legend>
+        <br>
+        <table align='center' width="200">
+            <tr height="30">
+                <td>
+                    Account Number :
+                </td>
+                <td ng-bind="vm.result.data.accountId"></td>
+            </tr>
+            <tr height="30">
+                <td>
+                    Branch :
+                </td>
+                <td ng-bind="vm.result.data.branch"></td>
+            </tr>
+            <tr height="30">
+                <td>
+                    IFSC :
+                </td>
+                <td ng-bind="vm.result.data.ifsc"></td>
+            </tr>
+            <tr height="30">
+                <td>
+                    Zip Code :
+                </td>
+                <td ng-bind="vm.result.data.zipCode"></td>
+            </tr>
+            <tr height="30">
+                <td>
+                    Total Amount :
+                </td>
+                <td ng-bind="vm.result.data.totalAmount"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>

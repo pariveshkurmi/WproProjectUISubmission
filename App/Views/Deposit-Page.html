@@ -1,0 +1,68 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<form name="myForm">
+    <fieldset>
+        <legend>Deposit Details Form</legend>
+        <div ng-if="vm.result == 'Money is deposited in account successfully.'">
+            <div class="row" align='center'><font color="green"><h4><p ng-bind="vm.result"></p></h4></font></div>
+
+        </div>
+        <div ng-if="vm.notExist.data.errorDesc != ''">
+            <div class="row" align='center'><font color="red"><h4><p ng-bind="vm.notExist.data.errorDesc"></p></h4></font></div>
+        </div>
+        <div ng-if="vm.notExist.status ==-1">
+            <div class="row" align='center'><font color="red"><h4>Database Or Server Is Down</h4></font></div>
+        </div>
+        <br>
+        <table align='center' width="400">
+            <tr>
+                <td height="50">Account Number
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="text" ng-model='vm.depositObj.accountId' name="accountNumber" id="inputAccountNumber" placeholder="Account Number" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Payment type
+                </td>
+                <td>
+                    <select id="select" class="form-control" ng-model="vm.depositObj.selectedPaymentMode">
+                        <option value="Cash">Cash</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr ng-show="vm.depositObj.selectedPaymentMode === 'Cheque'">
+                <td height="50">Cheque Number
+                </td>
+                <td>
+                    <input type="text" name="inputCheque" id="commonSelectedValue" placeholder="Cheque Number" ng-model='vm.depositObj.commonSelectedValue'/>
+                </td>
+            </tr>
+            <!--<tr ng-show="vm.depositObj.selectedPaymentMode === 'Cash'">
+                <td>
+                    <input type="hidden" ng-model='vm.depositObj.commonSelectedValue' id="inputCash" ng-init="vm.depositObj.commonSelectedValue = 'NA'" />
+                </td>
+            </tr>-->
+
+            <tr>
+                <td height="50">Amount
+                </td>
+                <td>
+                    <input type="number" ng-model='vm.depositObj.amount' name="amount" id="inputAmount" placeholder="Amount" required />
+                    <!--<br>
+                    <span ng-show="myForm.$dirty && myForm.amount.$error.required"><font color="red">This is a required field</font></span>-->
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="form-group" align='center'>
+            <div>
+                <input type="button" class="btn btn-primary" ng-click="vm.depositAmount()" value="Submit" ng-disabled="myForm.$invalid" />
+            </div>
+        </div>
+    </fieldset>
+</form>

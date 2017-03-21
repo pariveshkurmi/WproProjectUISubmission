@@ -1,0 +1,32 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<form name="loginForm">
+    <fieldset>
+        <legend>User Login Form</legend>
+        <div ng-if="vm.result.status ==-1">
+            <div class="row" align='center'><font color="red"><h4>Database Or Server is Down</h4></font></div>
+        </div>
+        <div class="row" align='center'><font color="red"><h4>{{vm.result.data.errorDesc}}</h4></font></div>
+        <br>
+        <table align="center" width="300">
+
+            <tr height="50">
+                <td>UserName :</td>
+                <td>
+                    <input type="text" ng-model='vm.userCred.userName' id="inputUserName" name="userName" placeholder="UserName"/>
+                </td>
+            </tr>
+
+            <tr height="50">
+                <td>Password :</td>
+                <td>
+                    <input type="password" ng-model='vm.userCred.password' id="inputPassword" name="password" placeholder="Password"/>
+                </td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <div class="row" align="center">
+                <input type="button" class="btn btn-primary" ng-click="vm.isValidUser()" value="Login" ng-disabled="loginForm.$invalid"/>
+            </div>
+        </div>
+    </fieldset>
+</form>

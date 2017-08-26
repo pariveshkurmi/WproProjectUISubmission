@@ -10,6 +10,9 @@
         var vm = this;
         vm.userCred = {};
         vm.result = '';
+        vm.getCustomerForm = function () {
+            $location.path('/customer');
+        }
         vm.isValidUser = function () {
             var promise = accountService.isValid(vm.userCred);
             promise.then(function (data) { //checking promise object if it is Resolved
@@ -17,13 +20,12 @@
                     },
                     function (data) { //checking promise object if it is Error
                         vm.result = data;
-                        if (vm.result.data.errorDesc != null) {
+                        if (vm.result.errorDesc != null) {
                             $location.path('/loginPage');
                         }
                     })
                 .then(function () {
-                    console.log('Login controller Then execution');
-                    if (vm.result.data.name != null) {
+                    if (vm.result.name != null) {
                         $location.path('/userDetails');
                     }
                 });

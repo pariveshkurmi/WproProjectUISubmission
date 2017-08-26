@@ -5,7 +5,7 @@
         <div ng-if="vm.result.status ==-1">
             <div class="row" align='center'><font color="red"><h4>Database Or Server is Down</h4></font></div>
         </div>
-        <div class="row" align='center'><font color="red"><h4>{{vm.result.data.errorDesc}}</h4></font></div>
+        <div class="row" align='center'><font color="red"><h4>{{vm.result.errorDesc}}</h4></font></div>
         <br>
         <table align="center" width="300">
 
@@ -26,6 +26,8 @@
         <div class="form-group">
             <div class="row" align="center">
                 <input type="button" class="btn btn-primary" ng-click="vm.isValidUser()" value="Login" ng-disabled="loginForm.$invalid"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                 <input type="button" class="btn btn-primary" ng-click="vm.getCustomerForm()" value="Register"/>
             </div>
         </div>
     </fieldset>

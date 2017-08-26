@@ -19,9 +19,15 @@
                 </td>
                 <!--<td ng-bind="vm.accountId">
                 </td>-->
+                
                 <td>
-                    <input type="text" ng-model='vm.depositObj.accountId' name="accountNumber" id="inputAccountNumber" placeholder="Account Number" required />
+                    <!-- <input type="text" ng-model='vm.depositObj.accountId' name="accountId" id="inputaccountId" placeholder="Account Number" ng-value="vm.accountId"/>  -->
+                <select name="accountId" class="form-control" ng-model="vm.depositObj.accountId">
+         <option value="{{vm.accountId}}">{{vm.accountId}}</option>
+     </select> 
+                
                 </td>
+
             </tr>
             <tr>
                 <td height="50">Payment type
@@ -61,7 +67,7 @@
         <br>
         <div class="form-group" align='center'>
             <div>
-                <input type="button" class="btn btn-primary" ng-click="vm.depositAmount()" value="Submit" ng-disabled="myForm.$invalid" />
+                <input type="button" class="btn btn-primary" ng-click="vm.depositAmount()" value="Submit" ng-disabled="myForm.$invalid"/>
             </div>
         </div>
     </fieldset>

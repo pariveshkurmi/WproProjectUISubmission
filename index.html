@@ -15,12 +15,27 @@
     <script src="App/Controllers/com.casestudy.user.details.controller.js"></script>
     <script src="App/Controllers/com.casestudy.account.details.controller.js"></script>
     <script src="App/Controllers/com.casestudy.deposit.controller.js"></script>
-
+    <script src="App/Controllers/com.casestudy.fundtransfer.controller.js"></script>
+    <script src="App/Controllers/com.casestudy.benificiary.controller.js"></script> 
+    <script src="App/Controllers/com.casestudy.customer.controller.js"></script>
+    <script src="App/Controllers/com.casestudy.transactions.controller.js"></script>
+    <script type="text/javascript">
+    function checkFirstVisit() {
+  if(document.cookie.indexOf('mycookie')==-1) {
+    // cookie doesn't exist, create it now
+    document.cookie = 'mycookie=1';
+     alert('Not to refresh');
+  }
+  else {
+    // not first visit, so alert
+        alert('You are Not allowed to refresh');
+  }
+}
+</script>
 
 </head>
 
-<body>
-
+<body onload="checkFirstVisit()">
     <div class="container" ng-view></div>
 
 </body>

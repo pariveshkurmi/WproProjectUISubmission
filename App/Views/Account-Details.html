@@ -1,40 +1,43 @@
 <div ng-include src="'App/Views/home.html'"></div>
-
 <form name="accountForm">
     <fieldset>
         <legend>Account Details Form</legend>
         <br>
+        <div ng-hide='vm.result.accountId == null || vm.result.accountId.length == 0'>
         <table align='center' width="200">
             <tr height="30">
                 <td>
                     Account Number :
                 </td>
-                <td ng-bind="vm.result.data.accountId"></td>
+                <td ng-bind="vm.result.accountId"></td>
             </tr>
             <tr height="30">
                 <td>
                     Branch :
                 </td>
-                <td ng-bind="vm.result.data.branch"></td>
+                <td ng-bind="vm.result.branch"></td>
             </tr>
             <tr height="30">
                 <td>
                     IFSC :
                 </td>
-                <td ng-bind="vm.result.data.ifsc"></td>
+                <td ng-bind="vm.result.ifsc"></td>
             </tr>
             <tr height="30">
                 <td>
                     Zip Code :
                 </td>
-                <td ng-bind="vm.result.data.zipCode"></td>
+                <td ng-bind="vm.result.zipCode"></td>
             </tr>
             <tr height="30">
                 <td>
                     Total Amount :
                 </td>
-                <td ng-bind="vm.result.data.totalAmount"></td>
+                <td ng-bind="vm.result.totalAmount"></td>
             </tr>
         </table>
+        </div>
+        <div class="row" align='center' ng-show="vm.result.accountId == null || vm.result.accountId.length == 0"><font color="red"><h4>Some Issue in getting Data</h4></font></div>
+    
     </fieldset>
 </form>

@@ -15,7 +15,6 @@
                     vm.result = data;
                 })
             .then(function () {
-                console.log('User Details Controller Then execution');
                 $location.path('/userDetails');
             });
     }

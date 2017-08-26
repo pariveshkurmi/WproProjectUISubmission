@@ -1,0 +1,106 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a class="navbar-brand" href="#/"><img src="Image/download.jpg" style="height:40px;width:50px;margin-top:-10px;margin-left:-20px"></a>
+        </div>
+    </div>
+</nav>
+<form name="customerForm">
+    <fieldset>
+        <legend>Cutomer Form</legend>
+        <div ng-if="vm.result.status ==-1">
+            <div class="row" align='center'><font color="red"><h4>Database Or Server is Down</h4></font></div>
+        </div>
+        <div class="row" align='center'><font color="red"><h4>{{vm.result.data.errorDesc}}</h4></font></div>
+        <br>
+        <table align="center" width="300">
+
+            <tr>
+                <td height="50">Name
+                </td>
+                <td>
+                    <input type="text" ng-model='vm.customerObj.name' name="name" id="inputName" placeholder="Name" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Address
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="text" ng-model='vm.customerObj.address' name="address" id="inputAddress" placeholder="Address" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">dob
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="text" ng-model='vm.customerObj.dob' name="dob" id="inputdob" placeholder="Date of Birth" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">city
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="text" ng-model='vm.customerObj.city' name="city" id="inputcity" placeholder="city" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">state
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="text" ng-model='vm.customerObj.state' name="state" id="inputState" placeholder="state" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">User Name
+                </td>
+                <td>
+                    <input type="text" ng-model='vm.customerObj.userName' name="userName" id="inputuserName" placeholder="User Name" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">password
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="password" ng-model='vm.customerObj.password' required pattern=".{2,}" name="password" id="inputpassword" placeholder="Password" required />
+                </td>
+            </tr>
+            
+            <tr>
+                <td height="50">EmailId
+                </td>
+                <!--<td ng-bind="vm.accountId">
+                </td>-->
+                <td>
+                    <input type="email" ng-model='vm.customerObj.EmailId' name="EmailId" id="inputEmailId" placeholder="Last Name" required />
+                <br/>
+                    <span class="error" ng-show="customerForm.EmailId.$error.email"><font color="red">Not valid email!</font>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="form-group">
+            <div class="row" align="center">
+                <input type="button" class="btn btn-primary" ng-click="vm.createCustomer()" value="Submit" ng-disabled="customerForm.$invalid"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                 <input type="button" class="btn btn-primary" ng-click="vm.cancelCustomerCreation()" value="Cancel"/>
+            </div>
+        </div>
+    </fieldset>
+</form>

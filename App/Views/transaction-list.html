@@ -1,0 +1,63 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<style>
+    table tr:nth-child(1) {
+        counter-reset: rowNumber;
+    }
+
+    table tr {
+        counter-increment: rowNumber;
+    }
+
+    table tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+</style>
+<fieldset>
+    <legend>Transaction List</legend>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            {{vm.userDetails.name}}-{{vm.userDetails.accountId}}
+        </div>
+        <div class="col-md-3 col-md-offset-6">
+            Closing Balance - {{vm.accountDetails.totalAmount}}
+        </div>
+    </div>
+    <div class="container">
+        <h1 ng-bind="vm.title" align='center'></h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                Serach for text
+            </div>
+            <div class="col-md-4">
+                <input type="search" ng-model='vm.searchText' />
+            </div>
+        </div>
+
+        <hr>
+        <!--table>thead>tr>th*4-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><a href="" >Serial No.</th>
+                    <th><a href="" ng-click="orderByField='remarks'; reverseSort = !reverseSort">Remarks</th>
+                    <th><a href="" ng-click="orderByField='amountTransfered'; reverseSort = !reverseSort">Amount(INR)</th>
+                    <th><a href="" ng-click="orderByField='transactionDate'; reverseSort = !reverseSort">Transaction Date</th>
+                </tr>
+            </thead>
+ 
+            <!--tbody>tr>td*4-->
+            <tbody>
+                <tr ng-repeat="event in vm.transactionObj | filter : vm.searchText | orderBy:'transactionDate' | orderBy:orderByField:reverseSort | filter:search">
+                    <td></td>        
+                    <td ng-bind="event.remarks"></td>
+                    <td ng-bind="event.amountTransfered"></td>
+                    <td ng-bind="event.transactionDate"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </fieldset>

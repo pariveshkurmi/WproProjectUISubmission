@@ -1,0 +1,21 @@
+{
+  "name": "wipro-portal",
+  "version": "1.0.0",
+  "description": "Wipro Account Portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Parivesh",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "http-server": "^0.10.0",
+    "mongoose": "^4.10.8",
+    "request": "^2.81.0"
+  }
+}

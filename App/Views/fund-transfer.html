@@ -1,0 +1,88 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<form name="fundTranferForm">
+    <fieldset>
+        <legend>Fund Tranfer</legend>
+        <div ng-if="vm.result == 'Money is Transferred to account successfully.'">
+            <div class="row" align='center'>
+                <font color="green">
+                    <h4>
+                        <p ng-bind="vm.result"></p>
+                    </h4>
+                </font>
+            </div>
+
+        </div>
+        <div ng-if="vm.result == 'Insufficient Balance in your Account'">
+            <div class="row" align='center'>
+                <font color="red">
+                    <h4>
+                        <p ng-bind="vm.result"></p>
+                    </h4>
+                </font>
+            </div>
+        </div>
+        <div ng-if="vm.notExist.status ==-1">
+            <div class="row" align='center'>
+                <font color="red">
+                    <h4>Database Or Server Is Down</h4>
+                </font>
+            </div>
+        </div>
+        <br>
+        <table align='center' width="400">
+            <tr>
+
+                <td height="50">From Account Number
+                </td>
+                <td>
+                    <!-- <input type="text" ng-model='vm.fundTransferObj.fromAccount'  name="amount" id="inputFromAccount" placeholder="From Account" ng-value="vm.accountId"/> -->
+                    <select name="accountId" class="form-control" ng-model="vm.fundTransferObj.fromAccount">
+                        <option value="{{vm.accountId}}">{{vm.accountId}}</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Payee Account Number
+                </td>
+
+                <td>
+
+                    <select name="payeeAccountId" class="form-control" ng-model="vm.fundTransferObj.payeeAccountId">
+         <option ng-repeat="benificiaries in vm.benificiaries" value="{{benificiaries.BenificiaryAccountNo}}">{{benificiaries.BenificiaryName}}-{{benificiaries.BenificiaryAccountNo}}</option>
+     </select>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td height="50">Amount
+                </td>
+                <td>
+                    <input type="number" ng-model='vm.fundTransferObj.amount' name="amount" id="inputAmount" placeholder="Amount" required />
+                    <!--<br>
+                    <span ng-show="myForm.$dirty && myForm.amount.$error.required"><font color="red">This is a required field</font></span>-->
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Remarks
+                </td>
+                <td>
+                    <input type="text" ng-model='vm.fundTransferObj.remarks' name="remarks" id="inputRemarks" placeholder="Remarks" required
+                    />
+                    <!--<br>
+                    <span ng-show="myForm.$dirty && myForm.amount.$error.required"><font color="red">This is a required field</font></span>-->
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="form-group" align='center'>
+            <div>
+                <input type="button" class="btn btn-primary" ng-click="vm.fundTransfer()" value="Submit" ng-disabled="fundTranferForm.$invalid"
+                />
+                <input type="button" class="btn btn-primary" ng-click="vm.addNewPayeeForm()" value="Add Payee" />
+            </div>
+        </div>
+    </fieldset>
+</form>

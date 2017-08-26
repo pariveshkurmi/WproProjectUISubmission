@@ -1,0 +1,61 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<fieldset>
+        <legend>Benificiary List</legend>
+        <br>
+<div class="form-group">
+            <div class="row" align="right">
+                <input type="button" class="btn btn-primary" ng-click="vm.addNewPayeeForm()" value="Add Payee"/>
+            </div>
+</div>
+<div class="container">
+        <h1 ng-bind="vm.title" align='center'></h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                Serach for text
+            </div>
+            <div class="col-md-4">
+                <input type="search" ng-model='vm.searchText' />
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                Serach By Benificiary Name
+            </div>
+            <div class="col-md-4">
+                <input type="text" ng-model='search.BenificiaryName' />
+
+            </div>
+        </div>
+
+        <hr>
+        <!--table>thead>tr>th*4-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><a href="" ng-click="orderByField='BenificiaryName'; reverseSort = !reverseSort">Benificiary Name</th>
+                    <th><a href="" ng-click="orderByField='IFSCCode'; reverseSort = !reverseSort">IFSCCode</th>
+                    <th><a href="" ng-click="orderByField='BenificiaryAccountNo'; reverseSort = !reverseSort">Account Number</th>
+                    <th><a href="" ng-click="orderByField='AccountType'; reverseSort = !reverseSort">Account Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+ 
+            <!--tbody>tr>td*4-->
+            <tbody>
+                <tr ng-repeat="event in vm.result | filter : vm.searchText | orderBy:'BenificiaryName' | orderBy:orderByField:reverseSort | filter:search">
+                    <td ng-bind="event.BenificiaryName"></td>
+                    <td ng-bind="event.IFSCCode"></td>
+                    <td ng-bind="event.BenificiaryAccountNo"></td>
+                    <td ng-bind="event.AccountType"></td>
+                    <td>
+		                <input type="button" value="Remove" style="font-size:7pt;color:white;background-color:#ff1a1a;border:2px solid #ff1a1a" ng-click="vm.removeRow(event.BenificiaryAccountNo)"/>
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </fieldset>

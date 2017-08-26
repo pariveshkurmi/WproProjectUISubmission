@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="WEP">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+    function warning()
+    {
+        return "hello there"; //U can write any custom message here.
+    }
+    window.onbeforeunload = warning;
+</script>
+
+</head>
+
+<body>
+
+    <div class="container" ng-view></div>
+
+</body>
+
+</html>

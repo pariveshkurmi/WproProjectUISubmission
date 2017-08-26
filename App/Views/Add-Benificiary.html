@@ -1,0 +1,83 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<form name="benificiaryForm">
+    <fieldset>
+        <legend>Add Benificiary</legend>
+        <div ng-if="vm.error != ''">
+            <div class="row" align='center'><font color="red"><h4><p ng-bind="vm.error"></p></h4></font></div>
+        </div>
+        
+        <br>
+        <table align='center' width="400">
+            <tr>
+                <td height="50">Benificiary Type
+                </td>
+                <td>
+                    Transfer to other bank/Credit Card Payment(NEFT/IMPS)
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Benificiary AccountNo/Credit Card No.
+                </td>
+                <td>
+                    <input type="password" ng-model='vm.benificiaryObj.benificiaryAccountNo' name="benificiaryAccountNo" id="inputBenificiaryAccountNo"
+                        placeholder="Benificiary AccountNo" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Re-Enter Benificiary AccountNo/Credit Card No.
+                </td>
+                <td>
+                    <input type="number" ng-model='vm.benificiaryObj.reEnterBenificiaryAccountNo' name="reEnterBenificiaryAccountNo" id="inputBenificiaryAccountNo"
+                        placeholder="Benificiary AccountNo" required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">Benificiary Account type
+                </td>
+                <td>
+                    <select id="select" class="form-control" ng-model="vm.benificiaryObj.benificiaryAccountType">
+                        <option value="Savings">Savings</option>
+                        <option value="Current">Current</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td height="50">IFSC Code
+                </td>
+                <td>
+                    <input type="text" ng-model='vm.benificiaryObj.ifsc' name="ifsc" id="inputIFSCCode" placeholder="IFSC Code" required />
+
+                </td>
+            </tr>
+
+            <tr>
+                <td height="50">Benificiary Name
+                </td>
+                <td>
+                    <input type="text" ng-model='vm.benificiaryObj.benificiaryName' name="benificiaryName" id="inputBenificiaryName" placeholder="Benificiary Name"
+                        required />
+                </td>
+            </tr>
+            <tr>
+                <td height="50">EmailId
+                </td>
+                <td>
+                    <input type="email" ng-model='vm.benificiaryObj.emailId' name="emailId" id="inputEmailId" placeholder="email Id" required
+                    />
+                    <br/>
+                    <span class="error" ng-show="benificiaryForm.emailId.$error.email"><font color="red">Not valid email!</font>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="form-group" align='center'>
+            <div>
+                <input type="button" class="btn btn-primary" ng-click="vm.addBenificiary()" value="Submit" ng-disabled="benificiaryForm.$invalid"
+                />
+                &nbsp;&nbsp;&nbsp;
+                <input type="button" class="btn btn-primary" ng-click="vm.cancelAddPayee()" value="Cancel"/>
+            </div>
+        </div>
+    </fieldset>
+</form>

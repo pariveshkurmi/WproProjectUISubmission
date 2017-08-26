@@ -1,0 +1,51 @@
+<div ng-include src="'App/Views/home.html'"></div>
+<form name="fundTransferForm">
+    <fieldset>
+        <legend>Fund Transfer</legend>
+        <br>
+        <table align="center" width="300">
+
+            <tr height="50">
+
+                <td>
+                    <input type="radio" ng-model='vm.fundTransfer.option' id="inputoption" name="option"  checked/>
+                </td>
+                <td style="padding-right: 30px"></td>
+
+                <td>
+                    Transfer to other bank/Credit Card Payment(NEFT/IMPS)
+                </td>
+            </tr>
+
+            <tr height="50">
+
+                <td>
+                    <input type="radio" ng-model='vm.fundTransfer.option' id="inputoption" name="option" disabled/>
+                </td>
+                <td style="padding-right: 30px"></td>
+
+                <td>
+                    Request Standing Instruction Between your own Savings or Current Accounts
+                </td>
+            </tr>
+            <tr height="50">
+
+                <td>
+                    <input type="radio" ng-model='vm.fundTransfer.option' id="inputoption" name="option" disabled/>
+                </td>
+                <td style="padding-right: 30px"></td>
+
+                <td>
+                    Request Standing Instruction to PPF or Yojana Samraddhi Accounts
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="form-group">
+            <div class="row" align="center">
+                <input type="button" class="btn btn-primary" ng-click="vm.getFundTransferForm()" value="Continue"
+                />
+            </div>
+        </div>
+    </fieldset>
+</form>
